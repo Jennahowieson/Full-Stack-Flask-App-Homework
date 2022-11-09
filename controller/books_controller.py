@@ -24,3 +24,8 @@ def create_books():
     book = Book(title, genre, author)
     book_repository.save(book)
     return redirect('/books')
+
+@books_blueprint.route ("/books/new")
+def new_task():
+    authors = author_repository.select_all()
+    return render_template("books/new.html", all_authors = authors)
