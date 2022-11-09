@@ -5,7 +5,7 @@ from models.book import Book
 
 
 def select_all():
-    author = []
+    authors = []
 
     sql = "SELECT * FROM author"
     results = run_sql(sql)
@@ -14,6 +14,16 @@ def select_all():
         author = Author(row['name'], row['id'] )
         author.append(author)
     return authors
+
+def select(id):
+    author = None
+    sql = "SELECT * FROM author WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        author = Author(result['name'], result['id'] )
+    return author
 
 def delete_all():
     sql = "DELETE  FROM authors"

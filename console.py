@@ -13,3 +13,9 @@ author2 =Author("Tina Fey")
 
 author_repository.save(author1)
 author_repository.save(author2)
+
+book1 = Book("Becoming", "Autobiography",author1)
+book2 = Book("Bossypants", "Tina Fey", author2)
+
+book_repository.save(book1)
+book_repository.save(book2)
