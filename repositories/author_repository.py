@@ -7,17 +7,17 @@ from models.book import Book
 def select_all():
     authors = []
 
-    sql = "SELECT * FROM author"
+    sql = "SELECT * FROM authors"
     results = run_sql(sql)
 
     for row in results:
         author = Author(row['name'], row['id'] )
-        author.append(author)
+        authors.append(author)
     return authors
 
 def select(id):
     author = None
-    sql = "SELECT * FROM author WHERE id = %s"
+    sql = "SELECT * FROM authors WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
 
